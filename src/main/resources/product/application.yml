@@ -2,7 +2,7 @@ spring:
   freemarker:
     cache: false
   datasource:
-    url: jdbc:mysql://localhost/pybbs?useSSL=false
+    url: jdbc:mysql://localhost:3306/pybbs?useSSL=false
     username: root
     password: 123$qweRcly
   jpa:
