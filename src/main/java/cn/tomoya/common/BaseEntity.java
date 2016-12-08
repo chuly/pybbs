@@ -51,7 +51,7 @@ public class BaseEntity {
         //处理@
         List<String> users = fetchUsers(content);
         for (String user : users) {
-            content = content.replace("@" + user, "[@" + user + "](" + siteConfig.getCookieDomain() + "/user/" + user + ")");
+            content = content.replace(user, "[" + user + "](/user/" + user + ")");
         }
         //markdown 转 html 并返回
         return Jsoup.clean(MarkdownUtil.pegDown(content), Whitelist.relaxed().addTags("input").addAttributes("input", "checked", "type"));
@@ -65,11 +65,11 @@ public class BaseEntity {
      */
     public static List<String> fetchUsers(String str) {
         List<String> ats = new ArrayList<>();
-        String pattern = "@";
+        String pattern = "@[^\\s]+\\s?";
         Pattern regex = Pattern.compile(pattern);
         Matcher regexMatcher = regex.matcher(str);
         while (regexMatcher.find()) {
-            ats.add(regexMatcher.group(1));
+            ats.add(regexMatcher.group());
         }
         return ats;
     }
