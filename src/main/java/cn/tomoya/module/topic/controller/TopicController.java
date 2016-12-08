@@ -1,6 +1,7 @@
 package cn.tomoya.module.topic.controller;
 
 import cn.tomoya.common.BaseController;
+import cn.tomoya.common.config.SiteConfig;
 import cn.tomoya.module.collect.service.CollectService;
 import cn.tomoya.module.reply.entity.Reply;
 import cn.tomoya.module.reply.service.ReplyService;
@@ -35,6 +36,8 @@ public class TopicController extends BaseController {
     private ReplyService replyService;
     @Autowired
     private CollectService collectService;
+    @Autowired
+    private SiteConfig siteConfig;
 
     /**
      * 创建话题
@@ -59,8 +62,8 @@ public class TopicController extends BaseController {
         String errors;
         if (StringUtils.isEmpty(title)) {
             errors = "标题不能为空";
-        } else if (StringUtils.isEmpty(tab)) {
-            errors = "版块不能为空";
+        }  else if (!siteConfig.getSections().contains(tab)) {
+            errors = "版块不存在";
         } else {
             User user = getUser();
             Topic topic = new Topic();
@@ -105,14 +108,14 @@ public class TopicController extends BaseController {
      *
      * @param title
      * @param content
-     * @param model
      * @return
      */
     @PostMapping("/{id}/edit")
-    public String update(@PathVariable Integer id, String tab, String title, String content, Model model, HttpServletResponse response) {
+    public String update(@PathVariable Integer id, String tab, String title, String content, HttpServletResponse response) {
         Topic topic = topicService.findById(id);
         User user = getUser();
         if (topic.getUser().getId() == user.getId()) {
+            if(!siteConfig.getSections().contains(tab)) throw new IllegalArgumentException("版块不存在");
             topic.setTab(tab);
             topic.setTitle(title);
             topic.setContent(content);
@@ -135,9 +138,10 @@ public class TopicController extends BaseController {
     public String detail(@PathVariable Integer id, HttpServletResponse response, Model model) {
         if (id != null) {
             Topic topic = topicService.findById(id);
-            System.out.println(1);
+            //浏览量+1
+            topic.setView(topic.getView() + 1);
+            topicService.save(topic);//更新话题数据
             List<Reply> replies = replyService.findByTopic(topic);
-            System.out.println(2);
             model.addAttribute("topic", topic);
             model.addAttribute("replies", replies);
             model.addAttribute("user", getUser());
@@ -160,9 +164,35 @@ public class TopicController extends BaseController {
      */
     @GetMapping("/{id}/delete")
     public String delete(@PathVariable Integer id, HttpServletResponse response) {
-        if (id != null) {
-            topicService.deleteById(id);
-        }
+        topicService.deleteById(id);
         return redirect(response, "/");
+    }
+
+    /**
+     * 加/减精华
+     * @param id
+     * @param response
+     * @return
+     */
+    @GetMapping("/{id}/good")
+    public String good(@PathVariable Integer id, HttpServletResponse response) {
+        Topic topic = topicService.findById(id);
+        topic.setGood(!topic.isGood());
+        topicService.save(topic);
+        return redirect(response, "/topic/" + id);
+    }
+
+    /**
+     * 置/不置顶
+     * @param id
+     * @param response
+     * @return
+     */
+    @GetMapping("/{id}/top")
+    public String top(@PathVariable Integer id, HttpServletResponse response) {
+        Topic topic = topicService.findById(id);
+        topic.setTop(!topic.isTop());
+        topicService.save(topic);
+        return redirect(response, "/topic/" + id);
     }
 }

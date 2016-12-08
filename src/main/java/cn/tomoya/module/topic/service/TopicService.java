@@ -64,7 +64,9 @@ public class TopicService {
      * @return
      */
     public Page<Topic> page(int p, int size, String tab) {
-        Sort sort = new Sort(new Sort.Order(Sort.Direction.DESC, "inTime"));
+        Sort sort = new Sort(
+                new Sort.Order(Sort.Direction.DESC, "top"),
+                new Sort.Order(Sort.Direction.DESC, "inTime"));
         Pageable pageable = new PageRequest(p - 1, size, sort);
         if (tab.equals("全部")) {
             return topicDao.findAll(pageable);
@@ -105,6 +107,32 @@ public class TopicService {
             upIds = upIds.replace(Constants.COMMA + userId + Constants.COMMA, Constants.COMMA);
             topic.setUpIds(upIds);
             topic.setUp(topic.getUp() - 1);
+            save(topic);
+        }
+    }
+
+    /**
+     * 增加回复数
+     *
+     * @param topicId
+     */
+    public void addOneReplyCount(int topicId) {
+        Topic topic = findById(topicId);
+        if (topic != null) {
+            topic.setReplyCount(topic.getReplyCount() + 1);
+            save(topic);
+        }
+    }
+
+    /**
+     * 减少回复数
+     *
+     * @param topicId
+     */
+    public void reduceOneReplyCount(int topicId) {
+        Topic topic = findById(topicId);
+        if (topic != null) {
+            topic.setReplyCount(topic.getReplyCount() - 1);
             save(topic);
         }
     }
