@@ -116,11 +116,6 @@
 						<directory>src/main/resources/product</directory>
 						<filtering>false</filtering>
 					</resource>
-					<resource>
-						<directory>src/main/resources</directory>
-						<targetPath>spring</targetPath>
-						<filtering>false</filtering>
-					</resource>
 				</resources>
 			</build>
 		</profile>
@@ -136,11 +131,6 @@
 				<resources>
 					<resource>
 						<directory>src/main/resources/local</directory>
-						<filtering>false</filtering>
-					</resource>
-					<resource>
-						<directory>src/main/resources</directory>
-						<targetPath>spring</targetPath>
 						<filtering>false</filtering>
 					</resource>
 				</resources>
