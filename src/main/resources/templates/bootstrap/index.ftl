@@ -1,5 +1,6 @@
 <#include "./common/layout.ftl">
 <@html page_title="首页 - ${siteTitle!}">
+<meta name="baidu_ssp_verify" content="adfdd1c265488750054767c9154bf490">
 <div class="row">
   <div class="col-md-9">
     <div class="panel panel-default">
