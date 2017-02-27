@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="baidu_ssp_verify" content="31a4fd4b1859d34bd258c947e1cf0a73">
 ${weibometa!}
   <title>${page_title!siteTitle}</title>
   <link rel="icon" href="//tomoya.cn/favicon.ico">
