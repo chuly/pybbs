@@ -2,6 +2,7 @@ package cn.tomoya.interceptor;
 
 import cn.tomoya.common.config.SiteConfig;
 import cn.tomoya.util.IpUtil;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -14,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import java.util.Iterator;
 import java.util.Map;
 
@@ -61,11 +63,11 @@ public class CommonInterceptor implements HandlerInterceptor {
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
         long start = (long) request.getAttribute("_start");
-
+        String uri = request.getRequestURI();
         String actionName = request.getRequestURI();
         String clientIp = IpUtil.getIpAddr(request);
         StringBuffer logstring = new StringBuffer();
-        logstring.append(clientIp).append("|").append(actionName).append("|");
+        logstring.append(clientIp).append("==>").append(uri).append("|").append(actionName).append("|");
         Map<String, String[]> parmas = request.getParameterMap();
         Iterator<Map.Entry<String, String[]>> iter = parmas.entrySet().iterator();
         while (iter.hasNext()) {

@@ -20,9 +20,9 @@
         </form>
       </#if>-->
       <ul class="nav navbar-nav navbar-right">
-        <li <#if page_tab == 'donate'> class="active" </#if>>
+        <#--<li <#if page_tab == 'donate'> class="active" </#if>>
           <a href="/donate">捐赠</a>
-        </li>
+        </li>-->
         <#--<li <#if page_tab == 'api'> class="active" </#if>>-->
           <#--<a href="/apidoc">API</a>-->
         <#--</li>-->

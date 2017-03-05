@@ -9,7 +9,7 @@
     <packaging>jar</packaging>
 
     <name>pybbs</name>
-    <description>朋也社区 spring-boot 版本</description>
+    <description>有朋自对面来 spring-boot 版本</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>

@@ -5,37 +5,7 @@
     <div class="panel panel-default">
       <div class="panel-heading"><a href="/">主页</a> / 关于</div>
       <div class="panel-body topic-detail-content">
-        <p>朋也社区是用Java语言编写的社区（论坛）系统.</p>
-        <p>感谢 <a href="http://jfinal.com" target="_blank">JFinal</a> - Java极速开发框架</p>
-        <p>界面布局参照
-          <a href="https://cnodejs.org" target="_blank">cnodejs</a>,
-          <a href="https://v2ex.com" target="_blank">v2ex</a>
-        </p>
-        <p>
-          欢迎提 <a href="https://github.com/tomoya92/pybbs/issues" target="_blank">issues</a>
-        </p>
-        <p>开源地址:
-        <ul>
-          <li>
-            Github: <a href="http://github.com/liygheart/pybbs"
-                       target="_blank">http://github.com/tomoya92/pybbs</a>
-          </li>
-          <li>
-            Gitosc: <a href="http://git.oschina.net/20110516/pybbs"
-                       target="_blank">http://git.oschina.net/20110516/pybbs</a>
-          </li>
-        </ul>
-        <p>使用到的技术:
-        <ul>
-          <li>jdk1.8</li>
-          <li>tomcat8</li>
-          <li>JFinal</li>
-          <li>MySQL(druid数据源)</li>
-          <li>Freemarker</li>
-          <li>Bootstrap</li>
-          <li>redis</li>
-          <li>solr6.0.1</li>
-        </ul>
+        <p>有朋自对面来是用Java语言编写的社区（论坛）系统.</p>
         <p>特性:
         <ul>
           <li>社区兼容性（IE9+）</li>
@@ -49,7 +19,7 @@
         </ul>
         <p>使用者</p>
         <ul>
-          <li><a href="http://bbs.narutogis.com/" target="_blank">http://bbs.narutogis.com/</a></li>
+          <li><a href="http://www.biubiuq.online/" target="_blank">http://www.biubiuq.online/</a></li>
         </ul>
       </div>
     </div>
