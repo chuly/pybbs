@@ -7,7 +7,7 @@
   <meta name="baidu_ssp_verify" content="31a4fd4b1859d34bd258c947e1cf0a73">
 ${weibometa!}
   <title>${page_title!siteTitle}</title>
-  <link rel="icon" href="//tomoya.cn/favicon.ico">
+  <link rel="icon" href="//www.biubiuq.online/static/images/favicon.ico">
 
   <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css"/>
 <#--<link rel="stylesheet/less" href="/static/bootstrap/css/less/bootstrap.less">-->
