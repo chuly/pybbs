@@ -9,7 +9,7 @@ ${weibometa!}
   <title>${page_title!siteTitle}</title>
   <link rel="icon" href="//www.biubiuq.online/static/images/favicon.ico">
 
-  <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css"/>
+  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.css"/>
 <#--<link rel="stylesheet/less" href="/static/bootstrap/css/less/bootstrap.less">-->
 <#--<script src="//cdn.bootcss.com/less.js/2.7.1/less.min.js"></script>-->
   <link rel="stylesheet" href="/static/bootstrap/css/github.css">
