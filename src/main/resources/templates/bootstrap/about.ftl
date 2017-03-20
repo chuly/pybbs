@@ -19,7 +19,7 @@
         </ul>
         <p>使用者</p>
         <ul>
-          <li><a href="http://www.biubiuq.online/" target="_blank">http://www.biubiuq.online/</a></li>
+          <li><a href="${baseUrlC!}" target="_blank">${baseUrlC!}</a></li>
         </ul>
       </div>
     </div>

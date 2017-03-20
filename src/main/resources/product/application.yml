@@ -16,12 +16,14 @@ banner:
   location: banner.txt
 site:
   name: 有朋自对面来
-  baseUrl: http://www.biubiuq.online/
+  baseUrl: http://www.biubiuq.cn/
+  baseUrlC: http://www.biubiuq.cn
+  beianName: 沪ICP备17011016号
   sessionName: _user
   adminSessionName: _admin_user
   cookieName: _token
   adminCookieName: _admin_token
-  cookieDomain: www.biubiuq.online
+  cookieDomain: www.biubiuq.cn
   cookieExpireTime: 30 # 单位天
   pageSize: 20
   avatarPath: /Users/tomoya/git/github/pybbs/src/main/resources/static/images/avatar/

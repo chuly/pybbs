@@ -14,6 +14,8 @@ public class SiteConfig {
 
     private String name;
     private String baseUrl;
+    private String baseUrlC;
+    private String beianName;
     private String cookieName;
     private String adminCookieName;
     private String cookieDomain;
@@ -26,7 +28,23 @@ public class SiteConfig {
     private List<String> sections;
     private String theme;
 
-    public String getName() {
+    public String getBeianName() {
+		return beianName;
+	}
+
+	public void setBeianName(String beianName) {
+		this.beianName = beianName;
+	}
+
+	public String getBaseUrlC() {
+		return baseUrlC;
+	}
+
+	public void setBaseUrlC(String baseUrlC) {
+		this.baseUrlC = baseUrlC;
+	}
+
+	public String getName() {
         return name;
     }
 

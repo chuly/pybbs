@@ -17,6 +17,8 @@ banner:
 site:
   name: 有朋自对面来
   baseUrl: http://localhost:8080/
+  baseUrlC: http://localhostffff:8080
+  beianName: 沪ICP备17011016号
   sessionName: _user
   adminSessionName: _admin_user
   cookieName: _token

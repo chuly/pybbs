@@ -53,10 +53,13 @@ public class CommonInterceptor implements HandlerInterceptor {
                     modelMap.addAttribute("_roles", ((UserDetails) o).getAuthorities());
                 }
             }
+            //freemarker全局变量
             modelMap.addAttribute("_isAuthenticated", isAuthenticated);
             modelMap.addAttribute("baseUrl", siteConfig.getBaseUrl());
             modelMap.addAttribute("siteTitle", siteConfig.getName());
             modelMap.addAttribute("sections", siteConfig.getSections());
+            modelMap.addAttribute("baseUrlC", siteConfig.getBaseUrlC());
+            modelMap.addAttribute("beianName", siteConfig.getBeianName());
         }
     }
 

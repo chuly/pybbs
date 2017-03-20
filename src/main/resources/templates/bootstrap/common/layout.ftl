@@ -4,10 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <meta name="baidu_ssp_verify" content="31a4fd4b1859d34bd258c947e1cf0a73">
+  <meta name="baidu_ssp_verify" content="fe8b16335e2fe940d58a557c39680b06">
 ${weibometa!}
   <title>${page_title!siteTitle}</title>
-  <link rel="icon" href="//www.biubiuq.online/static/images/favicon.ico">
+  <link rel="icon" href="${baseUrlC!}/static/images/favicon.ico">
 
   <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.css"/>
 <#--<link rel="stylesheet/less" href="/static/bootstrap/css/less/bootstrap.less">-->
