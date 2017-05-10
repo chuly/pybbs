@@ -25,9 +25,11 @@ public class AccessLog extends BaseEntity implements Serializable {
 	@GeneratedValue
 	private int id;
 
+	private String sysCode;
 	private String ip;
 	private Date accessDate;
 	private String resUri;
+	private String header;
 	private String param;
 	private int costTime;
 	private String remark;
@@ -86,6 +88,22 @@ public class AccessLog extends BaseEntity implements Serializable {
 
 	public void setRemark(String remark) {
 		this.remark = remark;
+	}
+
+	public String getSysCode() {
+		return sysCode;
+	}
+
+	public void setSysCode(String sysCode) {
+		this.sysCode = sysCode;
+	}
+
+	public String getHeader() {
+		return header;
+	}
+
+	public void setHeader(String header) {
+		this.header = header;
 	}
 
 }

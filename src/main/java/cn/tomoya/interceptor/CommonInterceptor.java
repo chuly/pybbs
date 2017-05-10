@@ -98,6 +98,7 @@ public class CommonInterceptor implements HandlerInterceptor {
     }
     private void insertAccessLog(HttpServletRequest httpRequest, Long timeMs){
 		String uri = httpRequest.getRequestURI();
+		String referer = httpRequest.getHeader("Referer");
 		if(uri.indexOf("/dltb/static/") >= 0){
 			return;
 		}
@@ -107,6 +108,7 @@ public class CommonInterceptor implements HandlerInterceptor {
 		accessLog.setIp(IpUtil.getIpAddr(httpRequest));
 //		accessLog.setRemark(remark);
 		accessLog.setResUri(uri);
+		accessLog.setHeader("Referer:"+referer);
 		accessLog.setParam(JSON.toJSONString(httpRequest.getParameterMap()));
 		threadPool.submit(new Thread(){
 			public void run() {
