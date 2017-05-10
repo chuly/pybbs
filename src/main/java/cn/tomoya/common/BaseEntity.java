@@ -83,6 +83,8 @@ public class BaseEntity {
     public String markedNotAt(String content) {
         if (StringUtils.isEmpty(content)) return "";
         //markdown 转 html 并返回
-        return Jsoup.clean(MarkdownUtil.pegDown(content), Whitelist.relaxed().addTags("input").addAttributes("input", "checked", "type"));
+		return Jsoup.clean(MarkdownUtil.pegDown(content),
+				Whitelist.relaxed().addTags("input").addAttributes("input", "checked", "type"))
+				.replace("<a href=\"http", "<a target=\"_blank\" href=\"http");
     }
 }

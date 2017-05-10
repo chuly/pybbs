@@ -72,8 +72,19 @@ public class Topic extends BaseEntity implements Serializable {
     @Column(columnDefinition = "text")
     //点赞用户id，逗号隔开(英文逗号)
     private String upIds;
+    
+    //排序
+    private Integer topSort;
 
-    public int getId() {
+    public Integer isTopSort() {
+		return topSort;
+	}
+
+	public void setTopSort(Integer topSort) {
+		this.topSort = topSort;
+	}
+
+	public int getId() {
         return id;
     }
 

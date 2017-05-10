@@ -45,4 +45,18 @@
     <#--<@qrcode/>-->
   </div>
 </div>
+<div style="position:fixed;bottom:0;right:0;_position:absolute;width:300px;height:250px;border:0px solid green;background:#ffffff;padding:10px;">
+	<!-- 广告位：首页右下 -->
+	<script type="text/javascript">
+	        document.write('<a style="display:none!important" id="tanx-a-mm_122721099_22898693_76210421"></a>');
+	        tanx_s = document.createElement("script");
+	        tanx_s.type = "text/javascript";
+	        tanx_s.charset = "gbk";
+	        tanx_s.id = "tanx-s-mm_122721099_22898693_76210421";
+	        tanx_s.async = true;
+	        tanx_s.src = "http://p.tanx.com/ex?i=mm_122721099_22898693_76210421";
+	        tanx_h = document.getElementsByTagName("head")[0];
+	        if(tanx_h)tanx_h.insertBefore(tanx_s,tanx_h.firstChild);
+	</script>
+</div>
 </@html>

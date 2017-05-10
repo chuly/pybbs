@@ -1,5 +1,33 @@
 <#include "../common/layout.ftl">
 <@html page_title="${topic.title}">
+<div style="position:fixed;bottom:0;right:0;_position:absolute;width:300px;height:250px;border:0px solid green;background:#ffffff;padding:10px;">
+	<!-- 广告位：pydetail右下 -->
+	<script type="text/javascript">
+	        document.write('<a style="display:none!important" id="tanx-a-mm_122721099_22898693_76222410"></a>');
+	        tanx_s = document.createElement("script");
+	        tanx_s.type = "text/javascript";
+	        tanx_s.charset = "gbk";
+	        tanx_s.id = "tanx-s-mm_122721099_22898693_76222410";
+	        tanx_s.async = true;
+	        tanx_s.src = "http://p.tanx.com/ex?i=mm_122721099_22898693_76222410";
+	        tanx_h = document.getElementsByTagName("head")[0];
+	        if(tanx_h)tanx_h.insertBefore(tanx_s,tanx_h.firstChild);
+	</script>
+</div>
+<div style="position:fixed;bottom:260;right:0;_position:absolute;width:120px;height:240px;border:0px solid green;background:#ffffff;padding:10px;">
+	<!-- pydetail对联 -->
+	<script type="text/javascript">
+	        document.write('<a style="display:none!important" id="tanx-a-mm_122721099_22898693_76218490"></a>');
+	        tanx_s = document.createElement("script");
+	        tanx_s.type = "text/javascript";
+	        tanx_s.charset = "gbk";
+	        tanx_s.id = "tanx-s-mm_122721099_22898693_76218490";
+	        tanx_s.async = true;
+	        tanx_s.src = "http://p.tanx.com/ex?i=mm_122721099_22898693_76218490";
+	        tanx_h = document.getElementsByTagName("head")[0];
+	        if(tanx_h)tanx_h.insertBefore(tanx_s,tanx_h.firstChild);
+	</script>
+</div>
 <div class="row">
   <div class="col-md-9">
     <div class="panel panel-default">
@@ -125,9 +153,12 @@
   }
 </style>
 <script type="text/javascript" src="/static/bootstrap/js/highlight.min.js"></script>
-<script type="text/javascript" src="/static/bootstrap/libs/webuploader/webuploader.withoutimage.js"></script>
-<script type="text/javascript" src="/static/bootstrap/libs/markdownit.js"></script>
-<script type="text/javascript" src="/static/bootstrap/libs/editor/editor.js"></script>
+<!--script type="text/javascript" src="/static/bootstrap/libs/webuploader/webuploader.withoutimage.js"></script-->
+<script type="text/javascript" src="http://opqrzetes.bkt.clouddn.com/static/js/webuploader.withoutimage.js"></script>
+<!--script type="text/javascript" src="/static/bootstrap/libs/markdownit.js"></script-->
+<script type="text/javascript" src="http://opqrzetes.bkt.clouddn.com/static/js/markdownit.js"></script>
+<!--script type="text/javascript" src="/static/bootstrap/libs/editor/editor.js"></script-->
+<script type="text/javascript" src="http://opqrzetes.bkt.clouddn.com/static/js/editor.js"></script>
 <script type="text/javascript" src="/static/bootstrap/libs/editor/ext.js"></script>
 <script type="text/javascript">
 

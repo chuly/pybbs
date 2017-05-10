@@ -66,6 +66,7 @@ public class TopicService {
     public Page<Topic> page(int p, int size, String tab) {
         Sort sort = new Sort(
                 new Sort.Order(Sort.Direction.DESC, "top"),
+                new Sort.Order(Sort.Direction.DESC, "topSort"),
                 new Sort.Order(Sort.Direction.DESC, "inTime"));
         Pageable pageable = new PageRequest(p - 1, size, sort);
         if (tab.equals("全部")) {

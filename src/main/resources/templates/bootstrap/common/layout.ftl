@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <meta name="baidu_ssp_verify" content="fe8b16335e2fe940d58a557c39680b06">
+  <meta name='TTUNION_verify' content='f302d44a917c2b94774ad2d730fa0f48'>
 ${weibometa!}
   <title>${page_title!siteTitle}</title>
   <link rel="icon" href="${baseUrlC!}/static/images/favicon.ico">

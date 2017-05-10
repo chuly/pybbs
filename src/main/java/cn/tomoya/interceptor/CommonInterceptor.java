@@ -1,7 +1,13 @@
 package cn.tomoya.interceptor;
 
-import cn.tomoya.common.config.SiteConfig;
-import cn.tomoya.util.IpUtil;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +19,12 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import cn.tomoya.common.config.SiteConfig;
+import cn.tomoya.module.accesslog.dao.AccessLogDao;
+import cn.tomoya.module.accesslog.entity.AccessLog;
+import cn.tomoya.util.IpUtil;
 
-import java.util.Iterator;
-import java.util.Map;
+import com.alibaba.fastjson.JSON;
 
 /**
  * Created by tomoya.
@@ -28,9 +35,11 @@ import java.util.Map;
 public class CommonInterceptor implements HandlerInterceptor {
 
     Logger log = Logger.getLogger(CommonInterceptor.class);
-
+    private static ExecutorService threadPool = Executors.newFixedThreadPool(2);
     @Autowired
     private SiteConfig siteConfig;
+    @Autowired
+    private AccessLogDao accessLogDao;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
@@ -85,5 +94,25 @@ public class CommonInterceptor implements HandlerInterceptor {
         long executionTime = System.currentTimeMillis() - start;
         logstring.append("excutetime=").append(executionTime).append("ms");
         log.info(logstring.toString());
+        insertAccessLog(request, 0L);
     }
+    private void insertAccessLog(HttpServletRequest httpRequest, Long timeMs){
+		String uri = httpRequest.getRequestURI();
+		if(uri.indexOf("/dltb/static/") >= 0){
+			return;
+		}
+		final AccessLog accessLog = new AccessLog();
+		accessLog.setAccessDate(new Date());
+		accessLog.setCostTime(timeMs.intValue());
+		accessLog.setIp(IpUtil.getIpAddr(httpRequest));
+//		accessLog.setRemark(remark);
+		accessLog.setResUri(uri);
+		accessLog.setParam(JSON.toJSONString(httpRequest.getParameterMap()));
+		threadPool.submit(new Thread(){
+			public void run() {
+				accessLogDao.save(accessLog);
+			}
+		});
+		
+	}
 }
