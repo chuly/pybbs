@@ -1,6 +1,7 @@
 package cn.tomoya.interceptor;
 
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
@@ -25,6 +26,7 @@ import cn.tomoya.module.accesslog.entity.AccessLog;
 import cn.tomoya.util.IpUtil;
 
 import com.alibaba.fastjson.JSON;
+import com.google.common.collect.Maps;
 
 /**
  * Created by tomoya.
@@ -98,7 +100,16 @@ public class CommonInterceptor implements HandlerInterceptor {
     }
     private void insertAccessLog(HttpServletRequest httpRequest, Long timeMs){
 		String uri = httpRequest.getRequestURI();
+		Enumeration<String> headerNames = httpRequest.getHeaderNames();
+		Map<String,String> m = Maps.newHashMap();
+		while(headerNames.hasMoreElements()){
+			String name = headerNames.nextElement();
+			m.put(name, httpRequest.getHeader(name));
+		}
 		String referer = httpRequest.getHeader("Referer");
+		String headerStr = "Referer:"+referer;
+		String headerStr2 = JSON.toJSONString(m);
+		System.out.println("============="+headerStr2);
 		if(uri.indexOf("/dltb/static/") >= 0){
 			return;
 		}
@@ -108,11 +119,16 @@ public class CommonInterceptor implements HandlerInterceptor {
 		accessLog.setIp(IpUtil.getIpAddr(httpRequest));
 //		accessLog.setRemark(remark);
 		accessLog.setResUri(uri);
-		accessLog.setHeader("Referer:"+referer);
+		accessLog.setHeader(headerStr);
 		accessLog.setParam(JSON.toJSONString(httpRequest.getParameterMap()));
+		accessLogDao.save(accessLog);
 		threadPool.submit(new Thread(){
 			public void run() {
-				accessLogDao.save(accessLog);
+				try {
+					accessLogDao.save(accessLog);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 		});
 		
