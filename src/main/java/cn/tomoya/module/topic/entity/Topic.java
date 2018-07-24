@@ -30,7 +30,8 @@ public class Topic extends BaseEntity implements Serializable {
     private String tab;
 
     //标题
-    @Column(unique = true, nullable = false)
+//    @Column(unique = true, nullable = false)
+    @Column(nullable = false)
     private String title;
 
     //内容
@@ -72,6 +73,16 @@ public class Topic extends BaseEntity implements Serializable {
     @Column(columnDefinition = "text")
     //点赞用户id，逗号隔开(英文逗号)
     private String upIds;
+    
+    //content hash,用于手动插入数据校验
+    @Column(name = "content_hash")
+    private String contentHash;
+  //ori_url,用于手动插入数据校验
+    @Column(name = "ori_url")
+    private String oriUrl;
+  //modity_time,用于手动插入数据校验
+    @JsonFormat(pattern = Constants.DATETIME_FORMAT)
+    private Date modityTime;
     
     //排序
     private Integer topSort;
@@ -187,5 +198,29 @@ public class Topic extends BaseEntity implements Serializable {
     public void setUpIds(String upIds) {
         this.upIds = upIds;
     }
+
+	public String getContentHash() {
+		return contentHash;
+	}
+
+	public void setContentHash(String contentHash) {
+		this.contentHash = contentHash;
+	}
+
+	public String getOriUrl() {
+		return oriUrl;
+	}
+
+	public void setOriUrl(String oriUrl) {
+		this.oriUrl = oriUrl;
+	}
+
+	public Date getModityTime() {
+		return modityTime;
+	}
+
+	public void setModityTime(Date modityTime) {
+		this.modityTime = modityTime;
+	}
 
 }
