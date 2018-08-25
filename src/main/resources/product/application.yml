@@ -4,7 +4,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/pybbs?autoReconnect=true&useSSL=false&characterEncoding=UTF-8
     username: root
-    password: 
+    password: cly2017123$qweR
   jpa:
     database: mysql
     show-sql: true
